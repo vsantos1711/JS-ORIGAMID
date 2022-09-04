@@ -1,5 +1,5 @@
 # ESTUDOS JAVASCRIPT
-Repositoria criado para guardar meus arquivos e acompanhar meu progresso no curso JavaScript Completo ES6+ da Origamid.
+Repositoriap criado para guardar meus arquivos e acompanhar meu progresso no curso JavaScript Completo ES6+ da Origamid.
 Nesse cruso aprendemos conceitos como: O que é DOM; Eventos; Constructor Functions; setTimeout e setInterval; JS Assíncrono; Promises; JSON, etc
 
 
