@@ -1,15 +1,15 @@
-// const imagens = document.querySelectorAll('[src^="./img/imagem"]');
-// imagens.forEach(function(item) {
-//     console.log(item)
-// })
+const tabMenu = document.querySelectorAll('.js-tabmenu li');
+const tabContent = document.querySelectorAll('.js-tabcontent section');
 
-// const linksInternos = document.querySelectorAll('[href^="#"]');
-// linksInternos.forEach(function(item){
-//     console.log(item);
-// })
+function activeTab (index){
+    tabContent.forEach((section) => {
+        section.classList.remove('ativo');
+    });
+    tabContent[index].classList.add('ativo');
+}
 
-// const primeiroH2 = document.querySelector('.animais-descricao h2');
-// console.log(primeiroH2.innerHTML);
-
-// const paragrafos = document.querySelectorAll('p');
-// console.log(paragrafos[paragrafos.length - 1].innerText);
+tabMenu.forEach((itemMenu, index) =>{
+    itemMenu.addEventListener('click', () =>{
+        activeTab(index);
+    })
+});
