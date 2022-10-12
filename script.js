@@ -94,4 +94,4 @@ function Carro2 (marca, precoInicial) {
 
 const mazda = new Carro2('Mazda', 5000);
 
-//essa alteração foi realizada na branch teste
+//ESSA ALTERAÇÃO FOI REALIZADA NA BRANCH TESTE 1
