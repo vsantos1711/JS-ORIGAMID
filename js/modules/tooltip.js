@@ -1,43 +1,44 @@
-export default function initTooltip() {
-  const tooltips = document.querySelectorAll('[data-tooltip]');
+export default function initTooltip() {}
 
-  tooltips.forEach((item) => {
-    item.addEventListener('mouseover', onMouseOver);
-  })
+const tooltips = document.querySelectorAll('[data-tooltip]');
 
-  function onMouseOver(event) {
-    const tooltipBox = criarTooltipBox(this);
+tooltips.forEach((item) => {
+  item.addEventListener('mouseover', onMouseOver);
+})
 
-    onMouseMove.tooltipBox = tooltipBox;
-    this.addEventListener('mousemove', onMouseMove);
+function onMouseOver(event) {
+  const tooltipBox = criarTooltipBox(this);
+  tooltipBox.style.top = event.pageY + 'px';
+  tooltipBox.style.left = event.pageX + 'px';
 
-    onMouseLeave.tooltipBox = tooltipBox;
-    onMouseLeave.element = this;
-    this.addEventListener('mouseleave', onMouseLeave);
-  }
+  onMouseMove.tooltipBox = tooltipBox;
+  this.addEventListener('mousemove', onMouseMove);
 
-  const onMouseLeave = {
-    handleEvent() {
-      this.tooltipBox.remove();
-      this.element.removeEventListener('mouseleave', onMouseLeave);
-      this.element.removeEventListener('mousemove', onMouseMove);
-    }
-  }
+  onMouseLeave.tooltipBox = tooltipBox;
+  onMouseLeave.element = this;
+  this.addEventListener('mouseleave', onMouseLeave);
+}
 
-  const onMouseMove = {
-    handleEvent(event) {
-      this.tooltipBox.style.top = event.pageY + 20 + 'px';
-      this.tooltipBox.style.left = event.pageX + 20 + 'px';
-    }
-  }
-
-  function criarTooltipBox(element) {
-    const tooltipBox = document.createElement('div');
-    const text = element.getAttribute('aria-label');
-    tooltipBox.classList.add('tooltip');
-    tooltipBox.innerText = text;
-    document.body.appendChild(tooltipBox);
-    return tooltipBox;
+const onMouseLeave = {
+  handleEvent(){
+    this.tooltipBox.remove();
+    this.element.removeEventListener('mouseleave', onMouseLeave);
+    this.element.removeEventListener('mousemove', onMouseMove);
   }
 }
 
+const onMouseMove = {
+  handleEvent(event){
+    this.tooltipBox.style.top = event.pageY + 10 + 'px';
+    this. tooltipBox.style.left = event.pageX + 10 + 'px';
+  }
+}
+
+function criarTooltipBox(element){
+  const tooltipBox = document.createElement('div');
+  const text = element.getAttribute('aria-label');
+  tooltipBox.classList.add('tooltip');
+  tooltipBox.innerText = text;
+  document.body.appendChild(tooltipBox);
+  return tooltipBox;
+}
