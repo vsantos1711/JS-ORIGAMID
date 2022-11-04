@@ -48,7 +48,11 @@ body {
   font-size: 0.875rem;
   letter-spacing: .1em;
 }
-
+.menu li a:hover{
+  border-radius: 5px;
+  background: #f6f6f6;
+  transform: scale(1.1);
+}
 .grid-section {
   grid-column: 2 / 4;
   width: 100%;
