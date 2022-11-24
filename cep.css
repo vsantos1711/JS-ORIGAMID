@@ -19,6 +19,7 @@ form{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 20px;
 }
 .formulario label{
     font-size: 0.9rem;
@@ -45,4 +46,13 @@ form{
 }
 .formulario label #ibge{
     width: 80px;
+}
+.formulario button{
+    align-self: center;
+    background-color: green;
+    border-radius: 5px;
+    width: 350px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
