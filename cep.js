@@ -7,17 +7,24 @@ function salvarInformacoesForm(event) {
 }
 
 formulario.addEventListener('change', salvarInformacoesForm);
+
 btn.addEventListener('click', (event) => {
     event.preventDefault();
+    const bairro = endereco.bairro
     const cep = endereco.cep
-    if(endereco.cep != ''){
+    const ibge = endereco.ibge
+    const cidade = endereco.cidade
+    const rua = endereco.rua
+    const estado = endereco.estado
+    
+    if(endereco.cep){
         pesquisaPorCep(cep)
     }
-    // descobrirCep(endereco);    
+    if(endereco.estado && endereco.cidade && endereco.rua){
+        descobrirCep(estado, cidade, rua);    
+    }
 })
-// function descobrirCep(endereco){
-    
-// }
+
 function pesquisaPorCep(cep){
     fetch('https://viacep.com.br/ws/'+cep+'/json/')
     .then(response => response.json())
@@ -30,10 +37,10 @@ function pesquisaPorCep(cep){
     })
 }
 
-// function descobrirCep(estado, cidade, rua, bairro){
-//     fetch('httpx://viacep.com.br/ws'+ estado +'/'+ cidade +'/'+ rua + '/json/')
-//     .then(response => response.json())
-//     .then((body) => {
-
-//     })
-// }
+function descobrirCep(estado, cidade, rua){
+    fetch('https://viacep.com.br/ws/'+ estado +'/'+ cidade +'/'+ rua + '/json/')
+    .then(response => response.json())
+    .then((body) => {
+         console.log(body)
+    })
+}
